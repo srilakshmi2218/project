@@ -1,0 +1,14 @@
+{
+  "name": "call-center-project",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix my-react-app run dev",
+    "start:all": "npx concurrently \"npm --prefix server run start\" \"npm --prefix my-react-app run dev\"",
+    "start:client": "npm --prefix my-react-app run dev",
+    "start:server": "npm --prefix server run start",
+    "dev": "npm --prefix my-react-app run dev",
+    "dev:all": "npx concurrently \"npm --prefix server run dev\" \"npm --prefix my-react-app run dev\"",
+    "dev:server": "npm --prefix server run dev"
+  }
+}

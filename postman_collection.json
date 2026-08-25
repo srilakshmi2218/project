@@ -1,0 +1,362 @@
+{
+	"info": {
+		"_postman_id": "call-center-agent-api-v1",
+		"name": "Call Center Agent Platform APIs",
+		"description": "Postman Collection for Call Center Agent Platform backend APIs. Designed to work directly with Postman Web & Postman App.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Register Agent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if (jsonData.token) {",
+							"    pm.environment.set('agent_token', jsonData.token);",
+							"    pm.globals.set('agent_token', jsonData.token);",
+							"    console.log('Saved agent_token:', jsonData.token);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Sarah Jenkins\",\n  \"email\": \"agent.sarah@callcenter.com\",\n  \"password\": \"Password123!\",\n  \"role\": \"Senior Agent\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Login Agent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if (jsonData.token) {",
+							"    pm.environment.set('agent_token', jsonData.token);",
+							"    pm.globals.set('agent_token', jsonData.token);",
+							"    console.log('Saved agent_token:', jsonData.token);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"agent.sarah@callcenter.com\",\n  \"password\": \"Password123!\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Get Agent Profile (Me)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{agent_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/auth/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Add Customer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if (jsonData.customer && jsonData.customer._id) {",
+							"    pm.environment.set('customer_id', jsonData.customer._id);",
+							"    pm.globals.set('customer_id', jsonData.customer._id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{agent_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Alexander Wright\",\n  \"phone\": \"+14155550142\",\n  \"email\": \"alex.wright@acme.com\",\n  \"company\": \"Acme Corp\",\n  \"notes\": \"Interested in high-volume telephony integration.\",\n  \"status\": \"Interested\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. Get All Customers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{agent_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. Initiate Phone Call",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"if (jsonData.call && jsonData.call.telephonyCallId) {",
+							"    pm.environment.set('telephony_call_id', jsonData.call.telephonyCallId);",
+							"    pm.globals.set('telephony_call_id', jsonData.call.telephonyCallId);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{agent_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customerId\": \"{{customer_id}}\",\n  \"phone\": \"+14155550142\",\n  \"notes\": \"Product pitch outbound call\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/calls/initiate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"calls",
+						"initiate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8. Get Call Logs (History)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{agent_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/calls",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"calls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9. Update Call Status",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{agent_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"telephonyCallId\": \"{{telephony_call_id}}\",\n  \"status\": \"completed\",\n  \"duration\": 124,\n  \"notes\": \"Customer agreed to schedule demo for next Monday.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/calls/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"calls",
+						"status"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

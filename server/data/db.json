@@ -1,0 +1,37 @@
+{
+  "agents": [
+    {
+      "_id": "mock_agt_1786929442247",
+      "name": "Sril",
+      "email": "srilakshmi146official@gmail.com",
+      "password": "$2b$10$ZxRlUe.HLwX4oF0RZ0.a8uor14oUCRE47r0JgXlUenmjK8vuwDn32",
+      "agentId": "AGT-4561",
+      "role": "Agent"
+    }
+  ],
+  "customers": [
+    {
+      "_id": "cust_sample_1",
+      "name": "Sarah Connor",
+      "phone": "+14155552671",
+      "email": "sarah.c@sky.net",
+      "company": "Cyberdyne Systems",
+      "notes": "Inquired about enterprise call support contract.",
+      "status": "Interested",
+      "agentId": "mock_agt_1",
+      "createdAt": "2026-08-17T00:00:00.000Z"
+    },
+    {
+      "_id": "cust_sample_2",
+      "name": "John Wick",
+      "phone": "+12125550199",
+      "email": "jwick@continental.com",
+      "company": "Continental Hotel",
+      "notes": "Urgent follow up required regarding service tier.",
+      "status": "Follow Up",
+      "agentId": "mock_agt_1",
+      "createdAt": "2026-08-17T00:00:00.000Z"
+    }
+  ],
+  "calls": []
+}
