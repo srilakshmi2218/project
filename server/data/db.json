@@ -7,9 +7,47 @@
       "password": "$2b$10$ZxRlUe.HLwX4oF0RZ0.a8uor14oUCRE47r0JgXlUenmjK8vuwDn32",
       "agentId": "AGT-4561",
       "role": "Agent"
+    },
+    {
+      "_id": "mock_agt_1789710808620",
+      "name": "Haseena",
+      "email": "hasena12345@gmail.com",
+      "password": "$2b$10$msUiue0PXNzQZ9E9HtykferastCosbbjlwY1nTYliyp1EoExLOdRi",
+      "agentId": "AGT-6771",
+      "role": "Agent"
+    },
+    {
+      "_id": "mock_agt_1790078748479",
+      "name": "person 2",
+      "email": "hasena12346@gmail.com",
+      "password": "$2b$10$iql7RBil8p6JZ22UN43ufOdDp30GdTK4Fhz0Drb2a0Lag/ve.ZrhO",
+      "agentId": "AGT-1550",
+      "role": "Agent"
     }
   ],
   "customers": [
+    {
+      "_id": "cust_1790572262459",
+      "name": "sample1",
+      "phone": "12345678",
+      "email": "sample@gmail.com",
+      "company": "abc",
+      "notes": "",
+      "status": "Lead",
+      "agentId": "mock_agt_1790078748479",
+      "createdAt": "2026-09-28T05:11:02.459Z"
+    },
+    {
+      "_id": "cust_1790078483652",
+      "name": "person 1",
+      "phone": "12345654",
+      "email": "person1@gmail.com",
+      "company": "textileshp",
+      "notes": "",
+      "status": "Lead",
+      "agentId": "mock_agt_1789710808620",
+      "createdAt": "2026-09-22T12:01:23.652Z"
+    },
     {
       "_id": "cust_sample_1",
       "name": "Sarah Connor",
@@ -33,5 +71,102 @@
       "createdAt": "2026-08-17T00:00:00.000Z"
     }
   ],
-  "calls": []
+  "calls": [
+    {
+      "_id": "call_1790572362850",
+      "customerId": "cust_1790572262459",
+      "customerName": "Customer",
+      "agentId": "mock_agt_1790078748479",
+      "agentName": "person 2",
+      "telephonyCallId": "sim_call_1790572362849_880",
+      "provider": "simulator",
+      "fromPhone": "+15005550006",
+      "toPhone": "12345678",
+      "status": "completed",
+      "duration": 10,
+      "notes": "Call completed with sample1",
+      "startTime": "2026-09-28T05:12:42.850Z",
+      "createdAt": "2026-09-28T05:12:42.850Z"
+    },
+    {
+      "_id": "call_1790572269510",
+      "customerId": "cust_1790572262459",
+      "customerName": "Customer",
+      "agentId": "mock_agt_1790078748479",
+      "agentName": "person 2",
+      "telephonyCallId": "sim_call_1790572269509_926",
+      "provider": "simulator",
+      "fromPhone": "+15005550006",
+      "toPhone": "12345678",
+      "status": "completed",
+      "duration": 15,
+      "notes": "with voice\n",
+      "startTime": "2026-09-28T05:11:09.510Z",
+      "createdAt": "2026-09-28T05:11:09.510Z"
+    },
+    {
+      "_id": "call_1790078915681",
+      "customerId": "cust_1790078483652",
+      "customerName": "Customer",
+      "agentId": "mock_agt_1790078748479",
+      "agentName": "person 2",
+      "telephonyCallId": "sim_call_1790078915675_621",
+      "provider": "simulator",
+      "fromPhone": "+15005550006",
+      "toPhone": "12345654",
+      "status": "completed",
+      "duration": 7,
+      "notes": "no",
+      "startTime": "2026-09-22T12:08:35.681Z",
+      "createdAt": "2026-09-22T12:08:35.681Z"
+    },
+    {
+      "_id": "call_1790078754014",
+      "customerId": "cust_1790078483652",
+      "customerName": "Customer",
+      "agentId": "mock_agt_1790078748479",
+      "agentName": "person 2",
+      "telephonyCallId": "sim_call_1790078754014_467",
+      "provider": "simulator",
+      "fromPhone": "+15005550006",
+      "toPhone": "12345654",
+      "status": "completed",
+      "duration": 19,
+      "notes": "Call completed with person 1",
+      "startTime": "2026-09-22T12:05:54.015Z",
+      "createdAt": "2026-09-22T12:05:54.015Z"
+    },
+    {
+      "_id": "call_1790078619318",
+      "customerId": "cust_1790078483652",
+      "customerName": "Customer",
+      "agentId": "mock_agt_1789710808620",
+      "agentName": "Haseena",
+      "telephonyCallId": "sim_call_1790078619318_795",
+      "provider": "simulator",
+      "fromPhone": "+15005550006",
+      "toPhone": "12345654",
+      "status": "completed",
+      "duration": 18,
+      "notes": "person1 -voice",
+      "startTime": "2026-09-22T12:03:39.318Z",
+      "createdAt": "2026-09-22T12:03:39.318Z"
+    },
+    {
+      "_id": "call_1790078499577",
+      "customerId": "cust_1790078483652",
+      "customerName": "Customer",
+      "agentId": "mock_agt_1789710808620",
+      "agentName": "Haseena",
+      "telephonyCallId": "sim_call_1790078499576_346",
+      "provider": "simulator",
+      "fromPhone": "+15005550006",
+      "toPhone": "12345654",
+      "status": "completed",
+      "duration": 9,
+      "notes": "Call completed with person 1",
+      "startTime": "2026-09-22T12:01:39.577Z",
+      "createdAt": "2026-09-22T12:01:39.577Z"
+    }
+  ]
 }
